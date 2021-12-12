@@ -1,4 +1,4 @@
-name: Autify for Mobile example
+name: example
 
 on: [push]
 
