@@ -18,6 +18,7 @@ jobs:
         env:
           AUTIFY_PERSONAL_ACCESS_TOKEN: ${{ secrets.AUTIFY_TOKEN }}
         with:
+          proejct_id: ${{ secrets.PROJECT_ID }}
           build_id: ${{ secrets.BUILD_ID }}
           test_plan_id: ${{ secrets.TEST_PLAN_ID }}
 ```
