@@ -20,7 +20,7 @@ main() {
   jq --version
 
   response=$(curl -X POST \
-    -H "Authorization: Bearer ${AUTIFY_TOKEN}" \
+    -H "Authorization: Bearer ${AUTIFY_FOR_MOBILE_API_TOKEN}" \
     -H "Content-Type: application/json" \
     -d @<(cat <<EOF
     { "build_id": "${AUTIFY_BUILD_ID}" }
