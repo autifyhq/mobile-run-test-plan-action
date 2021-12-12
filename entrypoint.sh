@@ -1,38 +1,27 @@
 #!/bin/sh -l
 
 readonly API_ENDPOINT="https://mobile-app.autify.com/api/v1"
-readonly AUTIFY_TEST_PLAN_ID=${1}
-readonly AUTIFY_BUILD_ID=${2}
+readonly BUILD_ID=${1}
+readonly TEST_PLAN_ID=${2}
 
-info() {
-  echo -e "$1"
-}
-
-success() {
-  echo -e "\033[00;32m $1 \033[0m"
-}
-
-error() {
-  echo -e "\033[00;31m $1 \033[0m"
+run_test_plan() {
+  echo $(curl -s -X POST \
+    -H "Authorization: Bearer ${AUTIFY_FOR_MOBILE_API_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "{\"build_id\":\"${BUILD_ID}\"}" \
+    "https://mobile-app.autify.com/api/v1/test_plans/${TEST_PLAN_ID}/test_plan_results")
 }
 
 main() {
-  jq --version
+  response=$(run_test_plan)
+  
+  if [[ "$( echo $response | jq 'has("errors")' )" == "true" ]]; then
+    echo $response | jq .
+    exit 1
+  fi
 
-  response=$(curl -X POST \
-    -H "Authorization: Bearer ${AUTIFY_FOR_MOBILE_API_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d @<(cat <<EOF
-    { "build_id": "${AUTIFY_BUILD_ID}" }
-    EOF
-    ) \
-    "https://mobile-app.autify.com/api/v1/test_plans/${AUTIFY_TEST_PLAN_ID}/test_plan_results")
-}
-
-# parameters
-info "parameters:"
-info "* test_plan_id: ${AUTIFY_TEST_PLAN_ID}"
-info "* build_id: ${AUTIFY_BUILD_ID}"
+  echo $response | jq .
+} 
 
 # run
 main "$@"
