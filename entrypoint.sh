@@ -21,6 +21,9 @@ run_test_plan() {
 }
 
 main() {
+  # TODO: Remove before merging into main branch
+  exit 0
+
   response=$(run_test_plan)
   
   if [[ "$( echo $response | jq 'has("errors")' )" == "true" ]]; then
