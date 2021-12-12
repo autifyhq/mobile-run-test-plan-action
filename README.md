@@ -18,7 +18,7 @@ jobs:
         env:
           AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
         with:
-          proejct_id: ${{ secrets.PROJECT_ID }}
+          project_id: ${{ secrets.PROJECT_ID }}
           build_id: ${{ secrets.BUILD_ID }}
           test_plan_id: ${{ secrets.TEST_PLAN_ID }}
 ```
