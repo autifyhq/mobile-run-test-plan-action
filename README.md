@@ -16,7 +16,7 @@ jobs:
       - name: Funtional test
         uses: autifyhq/<TODO: REPO NAME>t@main
         env:
-          AUTIFY_PERSONAL_ACCESS_TOKEN: ${{ secrets.AUTIFY_TOKEN }}
+          AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
         with:
           proejct_id: ${{ secrets.PROJECT_ID }}
           build_id: ${{ secrets.BUILD_ID }}
