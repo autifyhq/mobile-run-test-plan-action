@@ -29,7 +29,6 @@ jobs:
 
 | PARAMETER | DESCRIPTION | REQUIRED | DEFAULT | TYPE |
 | --- | --- | --- | --- | --- |
-| project_id | | Yes | - | string |
 | build_id | | Yes | - | string |
 | test_plan_id | | Yes | - | string |
 
