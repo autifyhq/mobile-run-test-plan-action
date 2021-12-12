@@ -3,6 +3,8 @@ FROM alpine:3.10
 
 # Install packages
 RUN apk add --no-cache \
+    # To call Autify for Mobile API
+    curl \
     # To parse and use the return value of curl
     jq
 
