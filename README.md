@@ -22,7 +22,7 @@ jobs:
           test_plan_id: ${{ secrets.TEST_PLAN_ID }}
 ```
 
-[![example](https://github.com/autifyhq/github-action/workflows/example-basic/badge.svg?branch=main)](.github/workflows/example.yml)
+[![example](https://github.com/autifyhq/github-action/workflows/example/badge.svg?branch=beta)](.github/workflows/example.yml)
 
 
 ## Inputs
