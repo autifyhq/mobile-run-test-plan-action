@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Funtional test
-        uses: autifyhq/<TODO: REPO NAME>t@main
+        uses: autifyhq/mobile-run-test-plan-github-action@beta
         env:
           AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
         with:
