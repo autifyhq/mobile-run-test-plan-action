@@ -26,7 +26,7 @@ jobs:
 
 [![example](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml/badge.svg?branch=beta)](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml)
 
-### Use with [`mobile-upload-build-github-action`](https://todo.com)
+### [WIP] Use with [`mobile-upload-build-github-action`](https://todo.com)
 
 Run a Test Plan using the build you uploaded in another step
 
@@ -55,7 +55,7 @@ jobs:
           test_plan_id: ${{ secrets.TEST_PLAN_ID }}
 ```
 
-[![example](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml/badge.svg?branch=beta)](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml)
+[![with hogehoge](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml/badge.svg?branch=beta)](https://github.com/autifyhq/mobile-run-test-plan-github-action/actions/workflows/example.yml)
 
 ## Inputs
 
