@@ -2,8 +2,7 @@
 
 name: "Run Autify for Mobile tests"
 description: "Run Autify for Mobile a Test Plan on GitHub Actions"
-author: 'Autify'
-
+author: "Autify"
 
 inputs:
   build_id:
@@ -16,15 +15,13 @@ inputs:
       Specify the ID of the Test Plan you created with Autify for Mobile. You can check it in the URL. Example: `https://mobile-app.autify.com/projects/<Project ID>/test_plans/<Test Plan ID>`.
     required: true
 
-
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.build_id }}
     - ${{ inputs.test_plan_id }}
 
 branding:
-  icon: 'check-circle'
-  color: 'purple'
-  
+  icon: "check-circle"
+  color: "purple"
