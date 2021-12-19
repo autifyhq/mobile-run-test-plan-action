@@ -19,10 +19,10 @@ inputs:
     required: true
 
 outputs:
-  test_result_id: # id of output
+  test_result_id:
     value: ${{ steps.result.outputs.test_result_id }}
 
-  error: # id of output
+  error:
     value: ${{ steps.result.outputs.error }}
 
 # runs:
@@ -43,8 +43,16 @@ runs:
         }
 
         main() {
+          if [ -z "${{ inputs.AUTIFY_FOR_MOBILE_API_TOKEN }}" ]; then
+            error "Token not set"
+          fi
+
           if ! echo "${{ inputs.build_id }}" | grep -Eq '^[0-9]+$'; then
             error "build_id should be specified"
+          fi
+
+          if ! echo "${{ inputs.test_plan_id }}" | grep -Eq '^[0-9]+$'; then
+            error "test_plan_id should be specified"
           fi
         }
 
