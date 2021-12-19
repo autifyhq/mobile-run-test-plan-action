@@ -20,15 +20,15 @@ outputs:
     description: "Hoge"
     value: ${{ steps.random-number-generator.outputs.test_result_id }}
 
-
 runs:
   using: composite
   steps:
     - id: random-number-generator
       shell: bash
       run: >
-        echo "Using Rainforest GitHub Action"
-        echo "::set-output name=test_result_id::${A})"
+        echo "Using GitHub Action"
+        message="Hello"
+        echo "::set-output name=test_result_id::$message)"
       
 
 branding:
