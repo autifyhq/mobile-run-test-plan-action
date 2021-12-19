@@ -19,6 +19,6 @@ jobs:
 
       - name: Ouputs
         run: > 
-          echo ${{ steps.functional_test.outputs.test_result_id }}
-          echo ${{ steps.random-number-generator.outputs.test_result_id }}
+          echo ${{ steps.functional_test.outputs.random-id }}
+          echo ${{ steps.random-number-generator.outputs.random-id }}
 
