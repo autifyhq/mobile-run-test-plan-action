@@ -40,7 +40,6 @@ runs:
           exit 1
         }
 
-        jq --version
         curl --version
 
     # - name: Run Test Plan
