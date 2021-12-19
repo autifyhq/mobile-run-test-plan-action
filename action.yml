@@ -43,14 +43,14 @@ runs:
         }
 
         inputs_exist() {
-          if echo "$1"  | grep -Eq '^[0-9]+$' ; then
+          if echo "$1" | grep -Eq '^[0-9]+$' ; then
             return 0
           fi
           return 1
         }
 
         main() {
-          if ! inputs_exist "\${{ inputs.build }}"; then
+          if ! echo "${{ inputs.build_id }}" | grep -Eq '^[0-9]+$'; then
             error "build_id should be specified"
           fi
         }
