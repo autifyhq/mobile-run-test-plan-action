@@ -22,10 +22,10 @@ main() {
   # success "Test plan ran"
   # echo $response | jq .
 
-  test-result-id=1
+  test_result_id=1
 
   # Outputs
-  echo "::set-output name=test_result_id::${test-result-id}"
+  echo "::set-output name=test_result_id::$(echo ${test_result_id})"
 }
 
 # run
