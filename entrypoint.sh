@@ -25,7 +25,7 @@ main() {
   build_id=1
 
   # Outputs
-  echo "::set-output name=test-result-id::$(echo $build_id)"
+  echo "::set-output name=test-result-id::${build_id}"
 }
 
 # run
