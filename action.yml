@@ -30,13 +30,19 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Run Test Plan
+    - name: Validate Parameters
       shell: bash
-      id: run_test_plan
-      run: |
-        echo ${{ inputs.build_id }}
-        RUN_COMMAND="hello"
-        echo "::set-output name=command::${RUN_COMMAND}"
+      id: validate
+      run: >
+        echo "::add-mask::${{ inputs.AUTIFY_FOR_MOBILE_API_TOKEN }}"
+
+    # - name: Run Test Plan
+    #   shell: bash
+    #   id: run_test_plan
+    #   run: |
+    #     echo ${{ inputs.build_id }}
+    #     RUN_COMMAND="hello"
+    #     echo "::set-output name=command::${RUN_COMMAND}"
 
 branding:
   icon: "check-circle"
