@@ -10,7 +10,7 @@ jobs:
       # 1. Run Test Plan with the specific build
       #
       - name: Funtional test
-        id: functional-test
+        id: functional_test
         uses: autifyhq/mobile-run-test-plan-action@main
         env:
           AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
@@ -18,5 +18,4 @@ jobs:
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 
       - name: Ouputs
-        run: >
-         echo {{ steps.functional-test.outputs.test_result_id }}
+        run: echo {{ steps.functional_test.outputs.test_result_id.value }}
