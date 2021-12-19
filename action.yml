@@ -25,9 +25,9 @@ outputs:
   error: # id of output
     value: ${{ steps.result.outputs.error }}
 
-# runs:
-#   using: "docker"
-#   image: "Dockerfile"
+runs:
+  using: "docker"
+  image: "Dockerfile"
 
 runs:
   using: "composite"
@@ -38,7 +38,7 @@ runs:
       run: >
         error () {
           echo "::error ::${1}"
-          echo "::set-output name=error::${1}"
+          echo "::set-output title=error::${1}"
           exit 1
         }
 
