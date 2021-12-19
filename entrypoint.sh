@@ -1,8 +1,6 @@
 #!/bin/sh -l
 
 readonly API_ENDPOINT="https://mobile-app.autify.com/api/v1"
-readonly BUILD_ID=${1}
-readonly TEST_PLAN_ID=${2}
 
 success() {
   echo -e "\033[00;32m $1 \033[0m"
@@ -22,7 +20,7 @@ run_test_plan() {
 
 main() {
   # TODO: Remove before merging into main branch
-  exit 0
+  # exit 0
 
   response=$(run_test_plan)
   
