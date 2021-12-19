@@ -25,7 +25,7 @@ jobs:
 
 [![example-basic](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-basic.yml/badge.svg)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-basic.yml)
 
-### [WIP] Use with [`mobile-upload-build-action`](https://todo.com)
+### [`mobile-upload-build-action`](https://github.com/autifyhq/mobile-upload-build-action)
 
 Run a Test Plan using the build you uploaded in another step
 
@@ -53,6 +53,7 @@ jobs:
 ```
 
 [![example-upload-build](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-upload-build.yml/badge.svg)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-upload-build.yml)
+
 ## Inputs
 
 | PARAMETER | DESCRIPTION | REQUIRED | DEFAULT | TYPE |
