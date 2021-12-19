@@ -17,7 +17,7 @@ jobs:
           AUTIFY_FOR_MOBILE_BUILD_ID: ${{ secrets.BUILD_ID }}
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
         with:
-          AUTIFY_FOR_MOBILE_BUILD_ID: ${{ secrets.BUILD_ID }}
+          build_id: ${{ secrets.BUILD_ID }}
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 
       - name: Ouputs
