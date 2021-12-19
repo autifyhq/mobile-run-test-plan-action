@@ -22,10 +22,13 @@ outputs:
   test_result_id: # id of the output
     description: "Hoge"
 
-
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: composite
+
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
 
 branding:
   icon: "check-circle"
