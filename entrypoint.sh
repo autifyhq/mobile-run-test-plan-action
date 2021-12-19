@@ -26,7 +26,7 @@ main() {
 
   # Outputs
   test_result_id=1  
-  echo ::set-output name=command::$test_result_id
+  echo "::set-output name=command::${test_result_id}"
 }
 
 # run
