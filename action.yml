@@ -21,7 +21,7 @@ inputs:
 outputs:
   command: # id of output
     description: 'The time we greeted you'
-    value: ${{ steps.hoge.outputs.command }}
+    value: ${{ steps.run_test_plan.outputs.command }}
 
 # runs:
 #   using: "docker"
@@ -30,9 +30,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Hoge
+    - name: Run Test Plan
       shell: bash
-      id: hoge
+      id: run_test_plan
       run: |
         RUN_COMMAND=1
         echo "::set-output name=command::${RUN_COMMAND}"
