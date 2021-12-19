@@ -29,7 +29,7 @@ runs:
     - id: random-number-generator
       run: |
         message="hello"
-        echo "::set-output name=random-id::${message}"
+        echo "::set-output name=random-id::$(echo $message)"
       shell: bash
 
 branding:
