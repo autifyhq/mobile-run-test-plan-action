@@ -19,20 +19,18 @@ inputs:
     required: true
 
 outputs:
-  test_result_id: # id of the output
-    description: "Hoge"
-    value: ${{ steps.random-number-generator.outputs.test_result_id }}
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
 
 runs:
-  using: composite
-
+  using: "composite"
   steps:
     - id: random-number-generator
+      run: |
+        message="hello"
+        echo "::set-output name=random-id::${message}"
       shell: bash
-      run: >
-        message="Hello"
-        echo "::set-output name=test_result_id::$(echo $message)"
-      
 
 branding:
   icon: "check-circle"
