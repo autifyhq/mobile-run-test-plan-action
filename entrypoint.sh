@@ -22,7 +22,7 @@ main() {
   # success "Test plan ran"
   # echo $response | jq .
 
-  echo ${{ input.build_id }}
+  echo ${{ inputs.build_id }}
 
   # Outputs
   test_result_id=1  
