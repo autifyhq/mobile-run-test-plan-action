@@ -19,18 +19,12 @@ inputs:
     required: true
 
 outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+  time: # id of output
+    description: 'The time we greeted you'
 
 runs:
-  using: "composite"
-  steps:
-    - id: random-number-generator
-      run: |
-        message="hello"
-        echo "::set-output name=random-id::$(echo $message)"
-      shell: bash
+  using: "docker"
+  image: "Dockerfile"
 
 branding:
   icon: "check-circle"

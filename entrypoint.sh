@@ -25,7 +25,7 @@ main() {
   test_result_id=1
 
   # Outputs
-  echo "::set-output name=test_result_id::$(echo ${test_result_id})"
+  echo ::set-output name=time::$test_result_id
 }
 
 # run
