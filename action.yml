@@ -19,7 +19,7 @@ inputs:
     required: true
 
 outputs:
-  test_result_id: # id of output
+  test_id: # id of output
     description: 'The time we greeted you'
     value: ${{ steps.random-number-generator.outputs.test_result_id }}
 
