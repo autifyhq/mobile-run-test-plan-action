@@ -19,27 +19,51 @@ inputs:
     required: true
 
 outputs:
-  command: # id of output
-    description: 'The time we greeted you'
-    # value: ${{ steps.run_test_plan.outputs.command }}
+  test_result_id: # id of output
+    value: ${{ steps.result.outputs.test_result_id }}
 
-runs:
-  using: "docker"
-  image: "Dockerfile"
+  error: # id of output
+    value: ${{ steps.result.outputs.error }}
 
 # runs:
-#   steps:
-#     - name: Validate Parameters
-#       shell: bash
-#       id: validate
-#       run: >
-#         error() {
-#           echo "::error ::${1}"
-#           echo "::set-ouput name=error::${1}"
-#           exit 1
-#         }
+#   using: "docker"
+#   image: "Dockerfile"
 
-#         curl --version
+runs:
+  using: "composite"
+  steps:
+    - name: Run Test Plan
+      shell: bash
+      id: result
+      run: >
+        error() {
+          echo "::error ::${1}"
+          echo "::set-ouput name=error::${1}"
+          exit 1
+        }
+
+        inputs_exist() {
+          if [[ ${1} =~ ^[[:alnum:]]+$ ]]; then
+            return 0
+          fi
+          return 1
+        }
+
+        run_test_plan() {
+          echo $(curl -s -X POST \
+            -H "Authorization: Bearer ${}" \
+            -H "Content-Type: application/json" \
+            -d "{\"build_id\":\"${AUTIFY_FOR_MOBILE_BUILD_ID}\"}" \
+            "https://mobile-app.autify.com/api/v1/test_plans/${AUTIFY_FOR_MOBILE_TEST_PLAN_ID}/test_plan_results")
+        }
+
+        main() {
+          if inputs_exist "\${{ inputs.build_id }}"; then
+            echo "YES"
+          fi
+          echo "NO"
+        }
+
 
     # - name: Run Test Plan
     #   shell: bash
