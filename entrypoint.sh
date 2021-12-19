@@ -25,7 +25,7 @@ main() {
   echo ${{ inputs.build_id }}
 
   # Outputs
-  test_result_id=1  
+  test_result_id=1
   echo "::set-output name=command::${test_result_id}"
 }
 
