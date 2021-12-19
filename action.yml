@@ -34,7 +34,7 @@ runs:
       shell: bash
       id: run_test_plan
       run: |
-        echo ${{ inputs.AUTIFY_FOR_MOBILE_BUILD_ID }}
+        echo ${{ inputs.build_id }}
         RUN_COMMAND="hello"
         echo "::set-output name=command::${RUN_COMMAND}"
 
