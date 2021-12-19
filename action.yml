@@ -30,8 +30,8 @@ runs:
     - id: random-number-generator
       shell: bash
       run: >
-        RANDOM=1
-        echo "::set-output name=test_result_id::$(echo $RANDOM)"
+        A=1
+        echo "::set-output name=test_result_id::$(echo $A)"
       
 
 branding:
