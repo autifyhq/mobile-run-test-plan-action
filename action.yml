@@ -25,9 +25,9 @@ outputs:
   error: # id of output
     value: ${{ steps.result.outputs.error }}
 
-runs:
-  using: "docker"
-  image: "Dockerfile"
+# runs:
+#   using: "docker"
+#   image: "Dockerfile"
 
 runs:
   using: "composite"
