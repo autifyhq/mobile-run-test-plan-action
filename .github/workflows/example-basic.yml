@@ -18,4 +18,7 @@ jobs:
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 
       - name: Ouputs
-        run: echo ${{ steps.functional_test.outputs.test_result_id }}
+        run: > 
+          echo ${{ steps.functional_test.outputs.test_result_id }}
+          echo ${{ steps.step-one.outputs.test_result_id }}
+

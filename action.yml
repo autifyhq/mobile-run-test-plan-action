@@ -18,12 +18,12 @@ inputs:
 outputs:
   test_result_id: # id of the output
     description: "Hoge"
-    value: ${{ steps.random-number-generator.outputs.test_result_id }}
+    value: ${{ steps.step-one.outputs.test_result_id }}
 
 runs:
   using: composite
   steps:
-    - id: random-number-generator
+    - id: step-one
       shell: bash
       run: >
         echo "Using GitHub Action"
