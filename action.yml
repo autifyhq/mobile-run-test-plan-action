@@ -18,6 +18,11 @@ inputs:
       Specify the ID of the Test Plan you created with Autify for Mobile. You can check it in the URL. Example: `https://mobile-app.autify.com/projects/<Project ID>/test_plans/<Test Plan ID>`.
     required: true
 
+outputs:
+  test_result_id: # id of the output
+    description: "Hoge"
+
+
 runs:
   using: "docker"
   image: "Dockerfile"

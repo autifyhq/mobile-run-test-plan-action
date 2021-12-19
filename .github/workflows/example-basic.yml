@@ -19,4 +19,4 @@ jobs:
 
       - name: Ouputs
         run: >
-         echo {{ steps.functional-test.outputs.test-result-id }}
+         echo {{ steps.functional-test.outputs.test_result_id }}
