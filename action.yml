@@ -34,7 +34,14 @@ runs:
       shell: bash
       id: validate
       run: >
-        echo "::add-mask::${{ inputs.AUTIFY_FOR_MOBILE_API_TOKEN }}"
+        error() {
+          echo "::error ::${1}"
+          echo "::set-ouput name=error::${1}"
+          exit 1
+        }
+
+        jq --version
+        curl --version
 
     # - name: Run Test Plan
     #   shell: bash
