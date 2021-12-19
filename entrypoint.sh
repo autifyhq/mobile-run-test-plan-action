@@ -16,8 +16,8 @@ run_test_plan() {
   echo $(curl -s -X POST \
     -H "Authorization: Bearer ${AUTIFY_FOR_MOBILE_API_TOKEN}" \
     -H "Content-Type: application/json" \
-    -d "{\"build_id\":\"${BUILD_ID}\"}" \
-    "https://mobile-app.autify.com/api/v1/test_plans/${TEST_PLAN_ID}/test_plan_results")
+    -d "{\"build_id\":\"${AUTIFY_FOR_MOBILE_BUILD_ID}\"}" \
+    "https://mobile-app.autify.com/api/v1/test_plans/${AUTIFY_FOR_MOBILE_TEST_PLAN_ID}/test_plan_results")
 }
 
 main() {
