@@ -28,7 +28,6 @@ outputs:
 #   image: "Dockerfile"
 
 runs:
-  using: "composite"
   steps:
     - name: Validate Parameters
       shell: bash
