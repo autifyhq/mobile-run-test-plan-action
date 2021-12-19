@@ -16,6 +16,9 @@ jobs:
           AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
           AUTIFY_FOR_MOBILE_BUILD_ID: ${{ secrets.BUILD_ID }}
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
+        with:
+          AUTIFY_FOR_MOBILE_BUILD_ID: ${{ secrets.BUILD_ID }}
+          AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 
       - name: Ouputs
         run: |
