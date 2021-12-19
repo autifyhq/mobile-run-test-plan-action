@@ -21,7 +21,7 @@ inputs:
 outputs:
   test_id: # id of output
     description: 'The time we greeted you'
-    value: ${{ steps.random-number-generator.outputs.test_result_id }}
+    value: ${{ steps.hoge.outputs.test_id }}
 
 # runs:
 #   using: "docker"
@@ -30,10 +30,10 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - id: random-number-generator
+    - id: hoge
       run: >
         test_result_id=1
-        echo ::set-output name=test_id::$test_result_id
+        echo "::set-output name=test_id::$test_result_id"
       shell: bash
 
 branding:
