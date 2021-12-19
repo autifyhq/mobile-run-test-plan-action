@@ -33,7 +33,7 @@ runs:
     - id: random-number-generator
       run: >
         test_result_id=1
-        echo ::set-output name=test_result_id::$test_result_id
+        echo ::set-output name=test_id::$test_result_id
       shell: bash
 
 branding:
