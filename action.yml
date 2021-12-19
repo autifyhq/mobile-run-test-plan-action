@@ -64,6 +64,8 @@ runs:
           echo "NO"
         }
 
+        main "$@"
+
 
     # - name: Run Test Plan
     #   shell: bash
