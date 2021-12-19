@@ -1,4 +1,4 @@
-name: example-uploading-build
+name: example-upload-build
 
 on: [push]
 

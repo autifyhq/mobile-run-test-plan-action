@@ -23,7 +23,7 @@ jobs:
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 ```
 
-[![example](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example.yml/badge.svg?branch=beta)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example.yml)
+[![example-basic](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-basic.yml/badge.svg)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-basic.yml)
 
 ### [WIP] Use with [`mobile-upload-build-action`](https://todo.com)
 
@@ -52,8 +52,7 @@ jobs:
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 ```
 
-[![with hogehoge](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example.yml/badge.svg?branch=main)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example.yml)
-
+[![example-upload-build](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-upload-build.yml/badge.svg)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/example-upload-build.yml)
 ## Inputs
 
 | PARAMETER | DESCRIPTION | REQUIRED | DEFAULT | TYPE |
