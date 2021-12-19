@@ -43,7 +43,7 @@ runs:
         }
 
         inputs_exist() {
-          if echo $1 | grep -Eq ^[[:alnum:]]+$; then
+          if echo "$1"  | grep -Eq '^[0-9]+$' ; then
             return 0
           fi
           return 1
