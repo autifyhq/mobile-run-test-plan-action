@@ -18,4 +18,5 @@ jobs:
 
       - name: Ouputs
         run: >
-          echo "Test Plan Result ID is ${{ env.AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID }}"
+          echo {{ test-result-id }}
+          echo {{ steps.test-result-id }}

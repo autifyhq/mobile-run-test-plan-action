@@ -1,15 +1,5 @@
 #!/bin/sh -l
 
-readonly API_ENDPOINT="https://mobile-app.autify.com/api/v1"
-
-success() {
-  echo -e "\033[00;32m $1 \033[0m"
-}
-
-error() {
-  echo -e "\033[00;31m $1 \033[0m"
-}
-
 run_test_plan() {
   echo $(curl -s -X POST \
     -H "Authorization: Bearer ${AUTIFY_FOR_MOBILE_API_TOKEN}" \
@@ -19,23 +9,23 @@ run_test_plan() {
 }
 
 main() {
-  # TODO: Remove before merging into main branch
-  exit 0
+  # exit 0
 
-  response=$(run_test_plan)
+  # response=$(run_test_plan)
   
-  if [[ "$( echo $response | jq 'has("errors")' )" == "true" ]]; then
-    error "Failed to run test plan"
-    echo $response | jq .
-    exit 1
-  fi
+  # if [[ "$( echo $response | jq 'has("errors")' )" == "true" ]]; then
+  #   error "Failed to run test plan"
+  #   echo $response | jq .
+  #   exit 1
+  # fi
 
-  success "Test plan ran"
-  AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID="$(echo $response | jq .id)"
-  echo $response | jq .
+  # success "Test plan ran"
+  # echo $response | jq .
 
-  # Export 
-  echo "AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID=${AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID}" >> "${GITHUB_ENV}"
+  build_id=1
+
+  # Outputs
+  echo "::set-output name=test-result-id::$(echo $build_id)"
 }
 
 # run

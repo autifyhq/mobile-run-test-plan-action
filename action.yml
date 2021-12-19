@@ -1,7 +1,10 @@
 # https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions
 
-name: "Run Autify for Mobile tests"
-description: "Run Autify for Mobile a Test Plan on GitHub Actions"
+name: "Run Test Plan at Autify for Mobile"
+
+description: >
+  Run a Test Plan at Autify for Mobile on GitHub Actions
+
 author: "Autify"
 
 inputs:
@@ -15,16 +18,9 @@ inputs:
       Specify the ID of the Test Plan you created with Autify for Mobile. You can check it in the URL. Example: `https://mobile-app.autify.com/projects/<Project ID>/test_plans/<Test Plan ID>`.
     required: true
 
-# outputs:
-#   test_result_id:
-    
-
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.build_id }}
-    - ${{ inputs.test_plan_id }}
 
 branding:
   icon: "check-circle"
