@@ -1,0 +1,14 @@
+name: example-basic
+
+on: [push]
+
+jobs:
+  autify-for-mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Funtional test
+        uses: autifyhq/mobile-run-test-plan-action@main
+        env:
+          AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
+          AUTIFY_FOR_MOBILE_BUILD: ${{ secrets.BUILD_ID }}
+          AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
