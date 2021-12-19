@@ -21,25 +21,25 @@ inputs:
 outputs:
   command: # id of output
     description: 'The time we greeted you'
-    value: ${{ steps.run_test_plan.outputs.command }}
-
-# runs:
-#   using: "docker"
-#   image: "Dockerfile"
+    # value: ${{ steps.run_test_plan.outputs.command }}
 
 runs:
-  steps:
-    - name: Validate Parameters
-      shell: bash
-      id: validate
-      run: >
-        error() {
-          echo "::error ::${1}"
-          echo "::set-ouput name=error::${1}"
-          exit 1
-        }
+  using: "docker"
+  image: "Dockerfile"
 
-        curl --version
+# runs:
+#   steps:
+#     - name: Validate Parameters
+#       shell: bash
+#       id: validate
+#       run: >
+#         error() {
+#           echo "::error ::${1}"
+#           echo "::set-ouput name=error::${1}"
+#           exit 1
+#         }
+
+#         curl --version
 
     # - name: Run Test Plan
     #   shell: bash

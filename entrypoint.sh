@@ -22,10 +22,11 @@ main() {
   # success "Test plan ran"
   # echo $response | jq .
 
-  test_result_id=1
+  echo ${{ input.build_id }}
 
   # Outputs
-  echo ::set-output name=time::$test_result_id
+  test_result_id=1  
+  echo ::set-output name=command::$test_result_id
 }
 
 # run
