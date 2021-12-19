@@ -58,10 +58,9 @@ runs:
         }
 
         main() {
-          if inputs_exist "\${{ inputs.build_id }}"; then
-            echo "YES"
+          if ! inputs_exist "\${{ inputs.build }}"; then
+            error "build_id should be specified"
           fi
-          echo "NO"
         }
 
         main "$@"
