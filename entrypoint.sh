@@ -20,7 +20,7 @@ run_test_plan() {
 
 main() {
   # TODO: Remove before merging into main branch
-  # exit 0
+  exit 0
 
   response=$(run_test_plan)
   
@@ -31,7 +31,11 @@ main() {
   fi
 
   success "Test plan ran"
+  AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID="$(echo $response | jq .id)"
   echo $response | jq .
+
+  # Export 
+  echo "AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID=${AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID}" >> "${GITHUB_ENV}"
 }
 
 # run

@@ -6,9 +6,16 @@ jobs:
   autify-for-mobile:
     runs-on: ubuntu-latest
     steps:
+      #
+      # 1. Run Test Plan with the specific build
+      #
       - name: Funtional test
         uses: autifyhq/mobile-run-test-plan-action@main
         env:
           AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
           AUTIFY_FOR_MOBILE_BUILD_ID: ${{ secrets.BUILD_ID }}
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
+
+      - name: Ouputs
+        run: >
+          echo "Test Plan Result ID is ${{ env.AUTIFY_FOR_MOBILE_TEST_PLAN_RESULT_ID }}"
