@@ -19,5 +19,5 @@ jobs:
 
       - name: Ouputs
         run: > 
-          echo ${{ steps.functional_test.outputs.time }}
+          echo ${{ steps.functional_test.outputs.test_result_id }}
 

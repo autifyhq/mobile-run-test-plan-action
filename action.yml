@@ -21,6 +21,7 @@ inputs:
 outputs:
   test_result_id: # id of output
     description: 'The time we greeted you'
+    value: ${{ steps.random-number-generator.outputs.test_result_id }}
 
 # runs:
 #   using: "docker"
@@ -29,7 +30,8 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: >
+    - id: random-number-generator
+      run: >
         test_result_id=1
         echo ::set-output name=test_result_id::$test_result_id
       shell: bash
