@@ -19,9 +19,9 @@ inputs:
     required: true
 
 outputs:
-  test_id: # id of output
+  command: # id of output
     description: 'The time we greeted you'
-    value: ${{ steps.hoge.outputs.test_id }}
+    value: ${{ steps.hoge.outputs.command }}
 
 # runs:
 #   using: "docker"
@@ -32,8 +32,8 @@ runs:
   steps:
     - id: hoge
       run: >
-        test_result_id=1
-        echo "::set-output name=test_id::$test_result_id"
+        RUN_COMMAND=1
+        echo "::set-output name=command::${RUN_COMMAND}"
       shell: bash
 
 branding:
