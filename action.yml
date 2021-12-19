@@ -36,9 +36,9 @@ runs:
       shell: bash
       id: result
       run: >
-        error() {
+        error () {
           echo "::error ::${1}"
-          echo "::set-ouput name=error::${1}"
+          echo "::set-output name=error::${1}"
           exit 1
         }
 
