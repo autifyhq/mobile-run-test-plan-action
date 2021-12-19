@@ -32,7 +32,7 @@ runs:
     shell: bash
     run: >
       test_result_id=1
-      echo ::set-output name=time::$test_result_id
+      echo ::set-output name=test_result_id::$test_result_id
 
 branding:
   icon: "check-circle"
