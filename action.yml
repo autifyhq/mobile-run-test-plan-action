@@ -1,10 +1,7 @@
 # https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions
 
 name: "Run Test Plan at Autify for Mobile"
-
-description: >
-  Run a Test Plan at Autify for Mobile on GitHub Actions
-
+description: Run a Test Plan at Autify for Mobile on GitHub Actions
 author: "Autify"
 
 inputs:
@@ -23,15 +20,15 @@ outputs:
     description: "Hoge"
     value: ${{ steps.random-number-generator.outputs.test_result_id }}
 
+
 runs:
   using: composite
-
   steps:
     - id: random-number-generator
       shell: bash
       run: >
         A=1
-        echo "::set-output name=test_result_id::$(echo $A)"
+        echo "::set-output name=test_result_id::$(echo ${A})"
       
 
 branding:
