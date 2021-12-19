@@ -18,6 +18,6 @@ jobs:
           AUTIFY_FOR_MOBILE_TEST_PLAN_ID: ${{ secrets.TEST_PLAN_ID }}
 
       - name: Ouputs
-        run: > 
+        run: |
           echo ${{ steps.functional_test.outputs.command }}
 

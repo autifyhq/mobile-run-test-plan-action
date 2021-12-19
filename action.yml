@@ -30,11 +30,12 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - id: hoge
-      run: >
+    - name: Hoge
+      shell: bash
+      id: hoge
+      run: |
         RUN_COMMAND=1
         echo "::set-output name=command::${RUN_COMMAND}"
-      shell: bash
 
 branding:
   icon: "check-circle"
