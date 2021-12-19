@@ -34,7 +34,8 @@ runs:
       shell: bash
       id: run_test_plan
       run: |
-        RUN_COMMAND=1
+        echo ${{ inputs.build_id }}
+        RUN_COMMAND="hello"
         echo "::set-output name=command::${RUN_COMMAND}"
 
 branding:
