@@ -4,27 +4,6 @@ name: "Run Test Plan at Autify for Mobile"
 description: "Run a Test Plan at Autify for Mobile on GitHub Actions"
 author: "Autify"
 
-branding:
-  icon: "check-circle"
-  color: "purple"
-
-inputs:
-  build_id:
-    description: >
-      Specify the ID of the Build you uploaded to Autify for Mobile. You can check it from the list of build files.
-    required: true
-  test_plan_id:
-    description: >
-      Specify the ID of the Test Plan you created with Autify for Mobile. You can check it in the URL. Example: `https://mobile-app.autify.com/projects/<Project ID>/test_plans/<Test Plan ID>`.
-    required: true
-
-outputs:
-  test_plan_result_id:
-    value: ${{ steps.result.outputs.test_plan_result_id }}
-
-  error:
-    value: ${{ steps.result.outputs.error }}
-
 runs:
   using: "composite"
   steps:
