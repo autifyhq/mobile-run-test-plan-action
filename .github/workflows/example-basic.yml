@@ -13,10 +13,7 @@ jobs:
         id: functional_test
         uses: autifyhq/mobile-run-test-plan-action@main
         with:
+          AUTIFY_FOR_MOBILE_API_TOKEN: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
           build_id: ${{ secrets.BUILD_ID }}
           test_plan_id: ${{ secrets.TEST_PLAN_ID }}
-
-      - name: Ouputs
-        run: |
-          echo ${{ steps.functional_test.outputs.errors }}
 

@@ -1,33 +1,29 @@
 # https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions
 
 name: "Run Test Plan at Autify for Mobile"
-
-description: >
-  Run a Test Plan at Autify for Mobile on GitHub Actions
-
+description: "Run a Test Plan at Autify for Mobile on GitHub Actions"
 author: "Autify"
+
+branding:
+  icon: "check-circle"
+  color: "purple"
 
 inputs:
   build_id:
     description: >
       Specify the ID of the Build you uploaded to Autify for Mobile. You can check it from the list of build files.
     required: true
-
   test_plan_id:
     description: >
       Specify the ID of the Test Plan you created with Autify for Mobile. You can check it in the URL. Example: `https://mobile-app.autify.com/projects/<Project ID>/test_plans/<Test Plan ID>`.
     required: true
 
 outputs:
-  test_result_id:
-    value: ${{ steps.result.outputs.test_result_id }}
+  test_plan_result_id:
+    value: ${{ steps.result.outputs.test_plan_result_id }}
 
   error:
     value: ${{ steps.result.outputs.error }}
-
-# runs:
-#   using: "docker"
-#   image: "Dockerfile"
 
 runs:
   using: "composite"
@@ -36,37 +32,6 @@ runs:
       shell: bash
       id: result
       run: >
-        error () {
-          echo "::error ::${1}"
-          echo "::set-output name=error::${1}"
-          exit 1
-        }
-
-        main() {
-          if [ -z "${{ inputs.AUTIFY_FOR_MOBILE_API_TOKEN }}" ]; then
-            error "Token not set"
-          fi
-
-          if ! echo "${{ inputs.build_id }}" | grep -Eq '^[0-9]+$'; then
-            error "build_id should be specified"
-          fi
-
-          if ! echo "${{ inputs.test_plan_id }}" | grep -Eq '^[0-9]+$'; then
-            error "test_plan_id should be specified"
-          fi
-        }
-
-        main "$@"
+        echo "hello"
 
 
-    # - name: Run Test Plan
-    #   shell: bash
-    #   id: run_test_plan
-    #   run: |
-    #     echo ${{ inputs.build_id }}
-    #     RUN_COMMAND="hello"
-    #     echo "::set-output name=command::${RUN_COMMAND}"
-
-branding:
-  icon: "check-circle"
-  color: "purple"
