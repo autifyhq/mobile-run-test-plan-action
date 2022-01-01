@@ -19,7 +19,7 @@ jobs:
 
       - name: Git branch
         run: >
-          git branch --show-current
+          echo ${GITHUB_REF##*/}
 
       - name: Run a Test Plan on Autify for Mobile
         id: run-test-plan
