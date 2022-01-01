@@ -1,3 +1,22 @@
+# Autify for Mobile Run Test Plan Action
+
+![GitHub Action Version](https://img.shields.io/github/v/release/autifyhq/web-run-test-plan-action.svg)
+[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/autifyhq/web-run-test-plan-action/main/LICENSE)
+
+## Inputs
+
+| PARAMETER | DESCRIPTION | REQUIRED | DEFAULT | TYPE |
+| --- | --- | --- | --- | --- |
+| **autify_for_web_api_token** | Autify for Web API Token
+| **test_plan_id** | Test Plan ID that you want to run | Yes | - | string |
+| **test_plan_api_base_url** | Test Plan API base URL | No | 'https://app.autify.com/api/v1/schedules/' | string |
+
+## Outputs
+
+| Name | Description |
+| --- | --- |
+| **response** | API response json |
+
 ## See Also
 
 API docs
@@ -6,7 +25,7 @@ API docs
 
 GitHub Actions from Autify
 
-- [autifyhq/mobile-upload-build-action](https://github.com/autifyhq/mobile-upload-build-action)
+- [Autify for Web Run Test Plan Action](https://github.com/autifyhq/web-run-test-plan-action)
 
 ## License
 

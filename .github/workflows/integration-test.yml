@@ -1,0 +1,30 @@
+name: "integration-test"
+
+# Controls when the action will run. 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a Test Plan on Autify for Mobile
+        id: run-test-plan
+        uses: ./
+        with:
+          autify_for_mobile_api_token: ${{ secrets.AUTIFY_FOR_MOBILE_API_TOKEN }}
+          test_plan_id: ${{ secrets.TEST_PLAN_ID }}
+          build_id: ${{ secrets.BUILD_ID }}
+
+      - name: Ouputs
+        run: >
+          echo "Test Result ID is $(echo ${{ steps.run-test-plan.outputs.response }} | jq -R 'fromjson? | .data.id')"
