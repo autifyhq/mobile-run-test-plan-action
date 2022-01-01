@@ -67,11 +67,6 @@ runs:
           "${{ inputs.test_plan_api_base_url }}${{ inputs.test_plan_id }}/test_plan_results")
 
         # Validate response
-        if [[ "$( echo ${response} | jq -R 'fromjson? | has("data")' )" == false ]]; then
-          error "Something went wrong. The response was : ${response}"
-          exit 1
-        fi
-
         if [ "$( echo ${response} | jq -R 'fromjson? | has("errors")' )" == true ]; then
           error "Error running the test plan. The error messages are : ${response}"
           exit 1
