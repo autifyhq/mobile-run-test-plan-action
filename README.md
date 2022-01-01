@@ -1,5 +1,6 @@
 # Autify for Mobile Run Test Plan Action
 
+[![integration-test](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/integration-test.yml/badge.svg)](https://github.com/autifyhq/mobile-run-test-plan-action/actions/workflows/integration-test.yml)
 ![GitHub Action Version](https://img.shields.io/github/v/release/autifyhq/web-run-test-plan-action.svg)
 [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/autifyhq/web-run-test-plan-action/main/LICENSE)
 
