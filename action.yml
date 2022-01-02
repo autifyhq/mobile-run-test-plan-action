@@ -1,16 +1,78 @@
-# https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions
-
-name: "Run Test Plan at Autify for Mobile"
-description: "Run a Test Plan at Autify for Mobile on GitHub Actions"
+---
+name: "Autify for Mobile Run Test Plan"
+description: "Runs a Test Plan to execute automated E2E tests on Autify for Mobile"
 author: "Autify"
+
+branding:
+  icon: "check-circle"
+  color: "purple"
+
+inputs:
+  autify_for_mobile_api_token:
+    description: "Personal Access Token"
+    required: true
+
+  test_plan_id:
+    description: "Test Plan ID that you want to run"
+    required: true
+
+  build_id:
+    description: "Build ID that you want to use"
+    required: true
+
+  test_plan_api_base_url:
+    description: "Test Plan API base URL"
+    default: https://mobile-app.autify.com/api/v1/test_plans/
+    required: false
+
+outputs:
+  response:
+    value: ${{ steps.run-test-plan-action.outputs.response }}
 
 runs:
   using: "composite"
   steps:
-    - name: Run Test Plan
+    - name: "Run a Test Plan on Autify for Web"
       shell: bash
-      id: result
-      run: >
-        echo "hello"
+      id: run-test-plan-action
+      run: |
+        error () {
+          echo "::error ::${1}"
+        }
 
+        # Mask the value if it is passed in a way other than GitHub secrets
+        echo "::add-mask::${{ inputs.autify_for_mobile_api_token }}"
 
+        # Validate parameters
+        if [ -z "${{ inputs.autify_for_mobile_api_token }}" ]; then
+          error "Token should exist"
+          exit 1
+        fi
+
+        if ! echo "${{ inputs.test_plan_id }}" | grep -Eq '^[a-zA-Z0-9]+$'; then
+          error "Test Plan ID should be string of alphabet or digits"
+          exit 1
+        fi
+
+        if ! echo "${{ inputs.build_id }}" | grep -Eq '^[a-zA-Z0-9]+$'; then
+          error "Build ID should be string of alphabet or digits"
+          exit 1
+        fi
+
+        # Call API
+        response=$(curl -s -X POST \
+          -H "Authorization: Bearer ${{ inputs.autify_for_mobile_api_token }}" \
+          -H "Content-Type: application/json" \
+          -d "{\"build_id\":\"${{ inputs.build_id }}\"}" \
+          "${{ inputs.test_plan_api_base_url }}${{ inputs.test_plan_id }}/test_plan_results")
+
+        # Validate response
+        if [ "$( echo ${response} | jq -R 'fromjson? | has("errors")' )" == true ]; then
+          error "Error running the test plan. The error messages are : ${response}"
+          exit 1
+        fi
+
+        # Outputs
+        echo "Successfully started the Test Plan."
+        echo ${response} | jq -R 'fromjson?'
+        echo "::set-output name=response::'${response}'"
