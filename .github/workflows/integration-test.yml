@@ -17,9 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Git branch
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v5.1
+
+      - name: Output current branch name
         run: >
-          echo ${GITHUB_REF#refs/heads/}
+          echo "Running on pr: ${{ steps.branch-name.outputs.current_branch }}"
 
       - name: Run a Test Plan on Autify for Mobile
         id: run-test-plan
